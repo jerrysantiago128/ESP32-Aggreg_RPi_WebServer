@@ -10,6 +10,6 @@ Raspberry Pi 4:
 - client.pub.py uses the MQTT Broker to publish a connection and data on the Broker.
 - client_sub.py uses the MQTT Broker to subscribe to the various devices publishing data via the MQTT Broker
 
-see the different_configurations.txt file for data flow diagrams for the 3 systems created from the code set in the repository
+see the configurations.txt file for data flow diagrams for the 3 systems created from the code set in the repository
 
 
