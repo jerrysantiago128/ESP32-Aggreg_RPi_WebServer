@@ -1,8 +1,15 @@
-// SIMPLE EXPLAINATION OF DATA FLOW AND DEVICE SET UP
+// SIMPLE EXPLAINATION OF DATA FLOW AND DEVICE CONNECTION
 
 ESP 32:
-The esp_now_Sender1_HC-SR04.ino and esp_now_aggregator_mqtt_ToRPi.ino files use the ESP-NOW framework to establish a connection between each ESP32 board. The message structure can be updated to allow for a many to one connection via ESP-NOW. The ESP aggregator takes in the data from each board and aggregates that data. The aggregator also connected and publishes data to the MQTT Broker hsoted on the Raspberry Pi4.
+- The esp_mqtt_client_hc-sr04.ino file is a single node configuration of the eps32 with a hc-sr04 sensor to a MQTT Broker hosted on a raspberry Pi4. It publishes the volume calculated from the hc-sr04 sensor to the Raspberry Pi4 and also subscribes to the Raspberry Pi4 client as a secondary verification system of the connectoin
+- The esp_now_Sender1_HC-SR04.ino and esp_now_aggregator_mqtt_ToRPi.ino files use the ESP-NOW framework to establish a connection between each ESP32 board. The message structure can be updated to allow for a many to one connection via ESP-NOW. The ESP aggregator takes in the data from each board and aggregates that data. The aggregator also connected and publishes data to the MQTT Broker hsoted on the Raspberry Pi4.
 
 
 Raspberry Pi 4:
-client_pub.py and client_sub.py are Python files ran on the Raspberry Pi.
+- The client_pub.py and client_sub.py are Python files ran on the Raspberry Pi. 
+- client.pub.py uses the MQTT Broker to publish a connection and data on the Broker.
+- client_sub.py uses the MQTT Broker to subscribe to the various devices publishing data via the MQTT Broker
+
+see the different_configurations.txt file for data flow diagrams for the 3 systems created from the code set in the repository
+
+
