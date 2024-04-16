@@ -188,8 +188,11 @@ void loop() {
   if (now - lastMsg > 4000) {
     lastMsg = now;
 
-    float volume = boardsStruct[0].volume          // POTENTIAL ERROR; VIEW BOARD MESSAGE STRUCT SETUP
-    client.publish("esp32/sensor1", volume); //topic name (to which this ESP32 publishes its data). UPDATE*************POTENTIAL ERROR
+    float volume = boardsStruct[0].volume          // store value from board to a volume
+    char msg [5] = {0};
+    itoa(volume, msg, 10);                         // convert/store in a char
+    Serial.println(msg);
+    client.publish("esp32/sensor1", msg); //topic name (to which this ESP32 publishes its data). 
   }
   
 }
