@@ -5,8 +5,7 @@
 // Must match the sender structure
 typedef struct struct_message {
   int id;
-  int x;
-  int y;
+  float volume;
 }struct_message;
 
 // Create a struct_message called myData
@@ -30,10 +29,8 @@ void OnDataRecv(const uint8_t * mac_addr, const uint8_t *incomingData, int len) 
   memcpy(&myData, incomingData, sizeof(myData));
   Serial.printf("Board ID %u: %u bytes\n", myData.id, len);
   // Update the structures with the new incoming data
-  boardsStruct[myData.id-1].x = myData.x;
-  boardsStruct[myData.id-1].y = myData.y;
-  Serial.printf("x value: %d \n", boardsStruct[myData.id-1].x);
-  Serial.printf("y value: %d \n", boardsStruct[myData.id-1].y);
+  boardsStruct[myData.id-1].volume = myData.volume;
+  Serial.printf("Volume: %d \n", boardsStruct[myData.id-1].volume);
   Serial.println();
 }
  
@@ -57,12 +54,8 @@ void setup() {
  
 void loop() {
   // Acess the variables for each board
-  /*int board1X = boardsStruct[0].x;
-  int board1Y = boardsStruct[0].y;
-  int board2X = boardsStruct[1].x;
-  int board2Y = boardsStruct[1].y;
-  int board3X = boardsStruct[2].x;
-  int board3Y = boardsStruct[2].y;*/
+  float volume = boardsStruct[0].volume;
+  
 
   delay(10000);  
 }
