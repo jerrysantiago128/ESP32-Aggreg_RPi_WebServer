@@ -15,7 +15,7 @@
 NewPing sonar(TRIGGER_PIN, ECHO_PIN, MAX_DISTANCE);
 
 //
-float distance, avg_distance, temp_distance, count, height, radius1, volume;
+float distance, avg_distance, temp_distance, count, height, radius1;
 float x = 0;
 const float radius2 = 4.625;
 
@@ -132,13 +132,13 @@ void callback(char* topic, byte* message, unsigned int length) {
 }
 
 // method to calculate the volume of a conical tank based on distance of solution in tank to sensor
-void volume(){
+float calc_volume(){
    int avg_distance = 0;
   count = 0;
   //sets up temp variable to test percent difference
   distance = sonar.ping_in();
   temp_distance = distance;
-  
+  float volume;
   //initalize an array to store distance for given time frame
   for(int i = 0; i<= 10;i++)
   {
@@ -184,8 +184,12 @@ void loop() {
   if (now - lastMsg > 4000) {
     lastMsg = now;
 
-
-    client.publish("esp32/sensor1", volume()); //topic name (to which this ESP32 publishes its data). UPDATE*************POTENTIAL ERROR
+    float volume = calc_volume();
+    char msg [5] = {0};
+    itoa(volume, msg, 10);
+    Serial.println(msg);
+    
+    client.publish("esp32/sensor1", msg); //topic name (to which this ESP32 publishes its data). 
   }
   
 }
