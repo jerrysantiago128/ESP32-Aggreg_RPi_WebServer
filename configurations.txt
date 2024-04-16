@@ -27,7 +27,7 @@ esp_now_Sender1_HC-SR04.ino         |
 | (Sensor Data 2)     |             |   |                   |                    
 |                     |             |   |                   |                                    
 +---------------------+             |   +-------------------+                      
-                                    |   esp_now_aggregator_mqtt_ToRPi.ino                                                      
+                                    |   esp_now_aggregator.ino                                                      
                                     |                                                       
 +---------------------+             |                                                       
 |                     |             |                                                       
