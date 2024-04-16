@@ -55,7 +55,7 @@ void setup() {
 void loop() {
   // Acess the variables for each board
   float volume = boardsStruct[0].volume;
-  
+  Serial.println(volume);
 
   delay(10000);  
 }
