@@ -66,3 +66,31 @@ esp_now_Sender1_HC-SR04.ino     esp_now_aggregator_mqtt_ToRPi.ino      client_pu
 
 
 
+// MANY TO ONE TO RASPBERY PI 4 WITH EXTERNAL STORAGE AND VISUALIZATION
++---------------------+            +-------------------+             +----------------------+              +----------------+
+|                     |            |                   |             |                      |              |                |
+| ESP32 Device A      |------------> ESP32 Aggregator   |------------> Raspberry Pi 4       | ----->|----> | External File  |            
+| (Read & Store       |            |   (MQTT Broker)    |            |                      |       |      |    Storage     |                  
+|   File Contents)    |            |                   |             |                      |       |      |                |      
+|                     |            |                   |             |                      |       |      +----------------+
++---------------------+            +-------------------+             +----------------------+       |
+                                   |                                                                | 
++---------------------+            |                                                                |
+|                     |            |                                                                | 
+| ESP32 Device B      |------------>                                                                |                             
+| (Read & Store       |            |                                                                |      +------------------+               
+|   File Contents)    |            |                                                                |----->|    Web Server    |   
+|                     |            |                                                                       |  (Data Upload    |  
++---------------------+            |                                                                       | & Visualization) |             
+                                   |                                                                       +------------------+    
++---------------------+            |                                                       
+|                     |            |                                                       
+| ESP32 Device C      |------------>                                                      
+| (Read & Store       |                                                    
+|   File Contents)    |                                                    
+|                     |                                                                     
++---------------------+                                                                     
+
+
+
+
