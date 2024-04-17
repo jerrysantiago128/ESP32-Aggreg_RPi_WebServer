@@ -101,7 +101,7 @@ esp_now_Sender1_HC-SR04.ino     esp_now_aggregator_mqtt_ToRPi.ino      client_pu
 |                     |              | (Data Collection)|               |  (Data Storage &    |              |      Server         |
 | - Flight Controller |              |                  |               |     Uploader)       |              | (Data Visualization)|
 | - ESP32             |------------->|                  |-------------->|                     |------------->|                     |
-| - Accelerometer     |              |                  | Flight Data   |                     |              |                     |
+| - 9 DOF IMU         |              |                  | Flight Data   |                     |              |                     |
 |                     |              +------------------+  over MQTT    +---------------------+              +---------------------+
 |                     |                                                 |         |
 |                     |                                                 |         |
