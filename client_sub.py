@@ -13,12 +13,12 @@ def on_disconnect(client, userdata, rc):
     print('Disconnected from MQTT server')
 
 # callback functions
-def callback_esp32_sensor1(client, userdata, rc):
+def callback_esp32_sensor1(client, userdata, msg):
     print('ESP sensor1 data: ', str(msg.payload.decode('utf-8')))
-def callback_esp32_sensor2(client, userdata, rc):
+def callback_esp32_sensor2(client, userdata, msg):
     print('ESP sensor2 data: ', str(msg.payload.decode('utf-8')))
 
-def callback_rpi_broadcast(client, userdata, rc):
+def callback_rpi_broadcast(client, userdata, msg):
     print('RPi Broadcast message: ', str(msg.payload.decode('utf-8')))
 def client_subscriptions(client):
     client.subscribe("esp32/#")  # hash indicates all topics followed by 'esp/'
