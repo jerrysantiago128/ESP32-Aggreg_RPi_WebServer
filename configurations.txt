@@ -93,4 +93,24 @@ esp_now_Sender1_HC-SR04.ino     esp_now_aggregator_mqtt_ToRPi.ino      client_pu
 
 
 
+******************************************************************************************************************************
+// *****DRONE WITH ESP32 AND ACCELEROMETER TO ESP32 VIA ESP-NOW TO RASPBERRY PI4 VIA MQTT TO WEB SERVER FOR VISUALIZATION*****
++---------------------+              +------------------+               +---------------------+              +---------------------+
+|                     |              |                  |               |                     |              |                     |
+|     DIY Drone       |              |   ESP32 Module   |               |   Raspberry Pi 4    |              |   Website / Web     |
+|                     |              | (Data Collection)|               |  (Data Storage &    |              |      Server         |
+| - Flight Controller |              |                  |               |     Uploader)       |              | (Data Visualization)|
+| - ESP32             |------------->|                  |-------------->|                     |------------->|                     |
+| - Accelerometer     |              |                  | Flight Data   |                     |              |                     |
+|                     |              +------------------+  over MQTT    +---------------------+              +---------------------+
+|                     |                                                 |         |
+|                     |                                                 |         |
+|                     |                                                 |         |
++---------------------+                                                 |         |          +---------------------+
+|                                                                       |         |          |                     |
+|----------------------------------------------------------------------->         |--------->|    JSON  Flight     |
+                                                                                             |  Path Data Storage  | 
+                                                                                             |                     |
+                                                                                             +---------------------+
+                          
 
